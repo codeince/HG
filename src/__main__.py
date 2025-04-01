@@ -1,11 +1,13 @@
 from __init__ import *
+from os import path
 
 from rich.console import Console
 
 console = Console()
 def cls(): console.clear()
+def cur_dir(): return path.abspath(path.dirname(__file__))
 
-words = WordList.from_file(f'{'/'.join(__file__.split('\\')[:-1])}/words.txt')
+words = WordList.from_file(f'{cur_dir()}/words.txt')
 generator = HistoryGenerator(words)
 
 while True:
@@ -24,7 +26,11 @@ while True:
             word_count = None if len(option) == 1 else int(option[1])
             generator.generate(word_count) if word_count else generator.generate()
         case '2':
-            generator.set_seed(option[1])
+            try:
+                generator.set_seed(option[1])
+            except IndexError:
+                print('Нужно написать в формате "2 семя"')
+                input('Если понял, нажми любую клавишу для продолжения...')
         case '3':
             print('Пока!')
             exit()

@@ -30,8 +30,4 @@
 
 ***Если ты хочешь поговорить с Code Slasher***
 
-[Twitter](https://x.com/Ghosts_Slasher)
-
 [Discord](@ghost____slasher)
-
-[VK](https://vk.com/ghostslasher)
